@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
+  // Normalize styles
   *, 
   *::after, 
   *::before {
@@ -24,11 +25,26 @@ export const GlobalStyles = createGlobalStyle`
   ol[role='list'] {
     list-style: none;
   }
+  
+  a {
+    text-decoration: none;
+  }
 
   input,
   button,
   textarea,
   select {
     font: inherit;
+  }
+  
+  // Other global styles  
+  html, 
+  body {
+    height: 100%;
+  }
+
+  #root{
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
   }
 `
