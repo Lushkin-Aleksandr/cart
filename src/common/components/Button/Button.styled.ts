@@ -1,16 +1,22 @@
 import styled from 'styled-components'
+import { ButtonType } from './Button'
 
-export const StyledButton = styled.button`
+const buttonColors = {
+  secondary: '#323d39',
+  primary: '#df9344',
+}
+
+export const StyledButton = styled.button<ButtonType>`
   border: none;
   border-radius: 25px;
-  padding: 10px 40px;
-  background-color: #323d39;
-  box-shadow: 0 0 2px 0 #000000;
+  padding: ${({ size }) => (size === 'medium' ? '10px 40px' : '5px 25px')};
+  background-color: ${({ variant }) => buttonColors[variant]};
+  box-shadow: ${({ variant }) => variant === 'secondary' && '0 0 1px 0 #000000'};
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #485953;
+    filter: contrast(80%);
     transform: scale(98%);
   }
 `
