@@ -5,7 +5,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background: #f8a64c;
+  background: #df9344;
   box-shadow: 0 0 5px 0 #000000;
 
   img {

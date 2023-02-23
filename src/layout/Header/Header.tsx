@@ -18,7 +18,9 @@ export const Header: FC<PropsType> = ({}) => {
       <Link to={RoutePaths.GOODS}>
         <Logo />
       </Link>
-      <Button onClick={handleCartButtonClick}>Cart</Button>
+      <Button variant={'secondary'} onClick={handleCartButtonClick}>
+        Cart
+      </Button>
     </StyledHeader>
   )
 }
