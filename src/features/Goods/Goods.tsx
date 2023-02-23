@@ -1,12 +1,26 @@
 import React, { FC } from 'react'
-import { StyledGoods } from './Goods.styled'
+import { GoodsItemsWrapper, GoodsTitle, StyledGoods } from './Goods.styled'
+import { StyledContainer } from '../../common/components/Container/Container.styled'
+import { GoodsCard } from './GoodsCard/GoodsCard'
 
 type PropsType = {}
 
 export const Goods: FC<PropsType> = ({}) => {
   return (
     <StyledGoods>
-      <h1>Goods page</h1>
+      <StyledContainer>
+        <GoodsTitle>Goods</GoodsTitle>
+
+        <GoodsItemsWrapper>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+          <GoodsCard></GoodsCard>
+        </GoodsItemsWrapper>
+      </StyledContainer>
     </StyledGoods>
   )
 }
