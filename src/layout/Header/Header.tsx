@@ -1,16 +1,24 @@
 import React, { FC } from 'react'
 import { StyledHeader } from './Header.styled'
-import logo from '../../common/assets/images/logo1.png'
-import { Link } from 'react-router-dom'
+
+import { Link, useNavigate } from 'react-router-dom'
 import { RoutePaths } from '../../routes/AppRoutes'
+import { Button } from '../../common/components/Button/Button'
+import { Logo } from '../../common/components/Logo/Logo'
 
 type PropsType = {}
 
 export const Header: FC<PropsType> = ({}) => {
+  const navigate = useNavigate()
+
+  const handleCartButtonClick = () => navigate(RoutePaths.CART)
+
   return (
     <StyledHeader>
-      <img src={logo} alt={'logo'} />
-      <Link to={RoutePaths.CART}>Cart</Link>
+      <Link to={RoutePaths.GOODS}>
+        <Logo />
+      </Link>
+      <Button onClick={handleCartButtonClick}>Cart</Button>
     </StyledHeader>
   )
 }
