@@ -8,6 +8,7 @@ export const StyledGoodsCard = styled.div`
 `
 
 export const GoodsCardImgWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary};
   height: 53%;
   background-color: #df9344;
 `
@@ -17,8 +18,7 @@ export const GoodsCardInfo = styled.div`
   flex-direction: column;
   height: 47%;
   padding: 20px 20px;
-  background-color: #f5dece;
-  color: #342c27;
+  background-color: ${({ theme }) => theme.colors.light};
 `
 
 export const GoodsCardTitle = styled.span`
@@ -32,7 +32,7 @@ export const GoodsCardDescription = styled.p`
   flex: 1;
   max-height: 70px;
   margin-bottom: 15px;
-  color: #a08d84;
+  color: ${({ theme }) => theme.textColors.secondary};
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
