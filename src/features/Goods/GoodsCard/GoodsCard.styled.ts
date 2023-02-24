@@ -10,7 +10,13 @@ export const StyledGoodsCard = styled.div`
 export const GoodsCardImgWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
   height: 53%;
-  background-color: #df9344;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 85%;
+  }
 `
 
 export const GoodsCardInfo = styled.div`

@@ -9,6 +9,7 @@ import {
   StyledGoodsCard,
 } from './GoodsCard.styled'
 import { Button } from '../../../common/components/Button/Button'
+import steakImg from '../../../common/assets/images/steak1.png'
 
 type PropsType = {}
 
@@ -16,7 +17,7 @@ export const GoodsCard: FC<PropsType> = ({}) => {
   return (
     <StyledGoodsCard>
       <GoodsCardImgWrapper>
-        <img src="" alt="" />
+        <img src={steakImg} alt="" />
       </GoodsCardImgWrapper>
 
       <GoodsCardInfo>
