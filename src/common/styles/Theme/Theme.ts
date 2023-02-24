@@ -11,4 +11,10 @@ export const theme = {
     secondary: '#a08d84',
     light: '#fff',
   },
+  breakpoints: {
+    lg: '1200px',
+    md: '900px',
+    sm: '760px',
+    xs: '450px',
+  },
 }
