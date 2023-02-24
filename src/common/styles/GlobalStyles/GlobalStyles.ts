@@ -30,6 +30,11 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
   input,
   button,
   textarea,
