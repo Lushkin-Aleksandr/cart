@@ -1,10 +1,22 @@
 import styled from 'styled-components'
 
 export const StyledGoodsCard = styled.div`
-  height: 450px;
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: -13px 11px 26px 0 rgba(0, 0, 0, 0.4);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    font-size: 1rem;
+  }
 `
 
 export const GoodsCardImgWrapper = styled.div`
@@ -23,15 +35,27 @@ export const GoodsCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   height: 47%;
-  padding: 20px 20px;
+  padding: 20px;
   background-color: ${({ theme }) => theme.colors.light};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 10px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    padding: 20px;
+  }
 `
 
 export const GoodsCardTitle = styled.span`
   display: block;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-bottom: 5px;
+  }
 `
 
 export const GoodsCardDescription = styled.p`
