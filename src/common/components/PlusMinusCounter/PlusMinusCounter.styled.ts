@@ -7,13 +7,13 @@ export const StyledPlusMinusCounter = styled.div<ButtonType>`
   border: 2px solid ${({ theme, variant }) => theme.colors[variant]};
   border-radius: 25px;
   font-size: 1em;
+  user-select: none;
 
   & > span {
     display: flex;
     justify-content: center;
     min-width: 1.6em;
     user-select: none;
-    font-size: ${({ size }) => (size === 'medium' ? '18px' : '12px')};
     color: ${({ theme, variant }) => theme.colors[variant]};
   }
 `
