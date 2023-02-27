@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react'
 import { StyledButton } from './Button.styled'
 
 type ButtonSizeType = 'small' | 'medium'
-type ButtonVariantsType = 'primary' | 'secondary'
+export type ButtonVariantsType = 'primary' | 'secondary'
 
 export type ButtonType = {
   size: ButtonSizeType
