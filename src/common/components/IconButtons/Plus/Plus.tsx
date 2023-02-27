@@ -2,10 +2,11 @@ import React, { FC } from 'react'
 import { IconPropsType } from '../IconButton'
 import { StyledPlus } from './Plus.styled'
 
-export const Plus: FC<Partial<IconPropsType>> = ({ variant = 'primary' }) => {
+export const Plus: FC<Partial<IconPropsType>> = ({ variant = 'primary', size = 'medium' }) => {
   return (
     <StyledPlus
       variant={variant}
+      size={size}
       width="64px"
       height="64px"
       viewBox="0 0 24 24"
@@ -16,24 +17,18 @@ export const Plus: FC<Partial<IconPropsType>> = ({ variant = 'primary' }) => {
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
         <path
-          d="M9 12H15"
-          stroke="#000000"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="#000000"
-        ></path>
-        <path
-          d="M12 9L12 15"
+          d="M5 12H19"
           stroke="#000000"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></path>
         <path
-          d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+          d="M12 5L12 19"
           stroke="#000000"
           strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         ></path>
       </g>
     </StyledPlus>

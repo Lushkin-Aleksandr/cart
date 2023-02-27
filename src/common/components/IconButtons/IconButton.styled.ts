@@ -19,6 +19,11 @@ export const StyledIconButton = styled.button`
   cursor: pointer;
   position: relative;
 
+  &:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.04);
   }

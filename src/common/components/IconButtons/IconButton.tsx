@@ -1,24 +1,24 @@
-import React, { FC, PropsWithChildren, useState } from 'react'
+import React, { ButtonHTMLAttributes, FC, MouseEvent, PropsWithChildren, useState } from 'react'
 import { StyledIconButton } from './IconButton.styled'
-import { ButtonVariantsType } from '../Button/Button'
+import { ButtonType } from '../Button/Button'
 
-type PropsType = {}
+type PropsType = ButtonHTMLAttributes<HTMLButtonElement> & {}
 
-export type IconPropsType = {
-  variant: ButtonVariantsType
-}
+export type IconPropsType = ButtonType & {}
 
-export const IconButton: FC<PropsWithChildren<PropsType>> = ({ children }) => {
+export const IconButton: FC<PropsWithChildren<PropsType>> = ({ children, onClick, ...props }) => {
   const [isClicked, setIsClicked] = useState(false)
 
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    onClick && onClick(e)
+
     setIsClicked(true)
 
     setTimeout(() => setIsClicked(false), 400)
   }
 
   return (
-    <StyledIconButton onClick={handleClick}>
+    <StyledIconButton onClick={handleClick} {...props}>
       {children}
       {isClicked && <span></span>}
     </StyledIconButton>
