@@ -24,8 +24,10 @@ export const StyledIconButton = styled.button`
     pointer-events: none;
   }
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
   }
 
   svg {
