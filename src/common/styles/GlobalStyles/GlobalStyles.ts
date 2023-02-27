@@ -43,6 +43,10 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   // Other global styles  
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
   html, 
   body {
     height: 100%;
