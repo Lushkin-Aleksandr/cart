@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { IconPropsType } from '../IconButton'
+import { IconPropsType } from '../../IconButton/IconButton'
 import { StyledPlus } from './Plus.styled'
 
 export const Plus: FC<Partial<IconPropsType>> = ({

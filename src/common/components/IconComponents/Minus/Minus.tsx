@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { StyledMinus } from './Minus.styled'
-import { IconPropsType } from '../IconButton'
+import { IconPropsType } from '../../IconButton/IconButton'
 
 export const Minus: FC<Partial<IconPropsType>> = ({
   variant = 'primary',

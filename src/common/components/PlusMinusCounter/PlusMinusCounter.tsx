@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
-import { Minus } from '../IconButtons/Minus/Minus'
-import { IconButton } from '../IconButtons/IconButton'
-import { Plus } from '../IconButtons/Plus/Plus'
+import { Minus } from '../IconComponents/Minus/Minus'
+import { IconButton } from '../IconButton/IconButton'
+import { Plus } from '../IconComponents/Plus/Plus'
 import { StyledPlusMinusCounter } from './PlusMinusCounter.styled'
 import { ButtonType } from '../Button/Button'
 
