@@ -3,8 +3,8 @@ import { StyledHeader } from './Header.styled'
 
 import { Link, useNavigate } from 'react-router-dom'
 import { RoutePaths } from '../../routes/AppRoutes'
-import { Button } from '../../common/components/Button/Button'
 import { Logo } from '../../common/components/Logo/Logo'
+import { CartButton } from '../../common/components/CartButton/CartButton'
 
 type PropsType = {}
 
@@ -18,9 +18,7 @@ export const Header: FC<PropsType> = ({}) => {
       <Link to={RoutePaths.GOODS}>
         <Logo />
       </Link>
-      <Button variant={'secondary'} onClick={handleCartButtonClick}>
-        Cart
-      </Button>
+      <CartButton onClick={handleCartButtonClick} />
     </StyledHeader>
   )
 }
