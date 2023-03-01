@@ -12,13 +12,16 @@ export const Goods: FC<PropsType> = ({}) => {
         <GoodsTitle>Goods</GoodsTitle>
 
         <GoodsItemsWrapper>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
-          <GoodsCard></GoodsCard>
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
+          <GoodsCard />
         </GoodsItemsWrapper>
       </StyledContainer>
     </StyledGoods>
