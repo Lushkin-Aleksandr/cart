@@ -7,7 +7,7 @@ type PropsType = {
   onClick(): void
 }
 
-export const CartButton: FC<PropsType> = ({ commonPrice = 300, onClick }) => {
+export const CartButton: FC<PropsType> = ({ commonPrice, onClick }) => {
   return (
     <StyledCartButton onClick={onClick} variant={'secondary'} size={'medium'}>
       {commonPrice ? <span>{commonPrice}$</span> : undefined}
