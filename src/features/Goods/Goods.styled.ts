@@ -4,15 +4,6 @@ export const StyledGoods = styled.div`
   padding: 20px 0 40px;
 `
 
-export const GoodsTitle = styled.h1`
-  margin-bottom: 20px;
-  color: ${({ theme }) => theme.textColors.light};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
-    text-align: center;
-  }
-`
-
 export const GoodsItemsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 250px);
