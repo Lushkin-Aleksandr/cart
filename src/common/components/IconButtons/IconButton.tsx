@@ -4,7 +4,9 @@ import { ButtonType } from '../Button/Button'
 
 type PropsType = ButtonHTMLAttributes<HTMLButtonElement> & {}
 
-export type IconPropsType = ButtonType & {}
+export type IconPropsType = ButtonType & {
+  color?: string
+}
 
 export const IconButton: FC<PropsWithChildren<PropsType>> = ({ children, onClick, ...props }) => {
   const [isClicked, setIsClicked] = useState(false)

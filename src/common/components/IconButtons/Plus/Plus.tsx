@@ -2,9 +2,14 @@ import React, { FC } from 'react'
 import { IconPropsType } from '../IconButton'
 import { StyledPlus } from './Plus.styled'
 
-export const Plus: FC<Partial<IconPropsType>> = ({ variant = 'primary', size = 'medium' }) => {
+export const Plus: FC<Partial<IconPropsType>> = ({
+  variant = 'primary',
+  size = 'medium',
+  color,
+}) => {
   return (
     <StyledPlus
+      color={color}
       variant={variant}
       size={size}
       width="64px"

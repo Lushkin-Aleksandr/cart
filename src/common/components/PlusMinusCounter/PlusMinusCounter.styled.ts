@@ -1,10 +1,17 @@
 import styled from 'styled-components'
 import { ButtonType } from '../Button/Button'
 
-export const StyledPlusMinusCounter = styled.div<ButtonType>`
+type PropsType = ButtonType & {
+  outlined?: boolean
+}
+
+export const StyledPlusMinusCounter = styled.div<PropsType>`
   display: inline-flex;
   align-items: center;
-  border: 2px solid ${({ theme, variant }) => theme.colors[variant]};
+  border: ${({ theme, variant, outlined }) =>
+    outlined ? `2px solid ${theme.colors[variant]}` : 'none'};
+  background: ${({ theme, variant, outlined }) =>
+    outlined ? 'transparent' : theme.colors[variant]};
   border-radius: 25px;
   font-size: 1em;
   user-select: none;
@@ -14,6 +21,10 @@ export const StyledPlusMinusCounter = styled.div<ButtonType>`
     justify-content: center;
     min-width: 1.6em;
     user-select: none;
-    color: ${({ theme, variant }) => theme.colors[variant]};
+    color: ${({ theme, variant, outlined }) => {
+      if (outlined) return theme.colors[variant]
+
+      return '#ffffff'
+    }};
   }
 `
