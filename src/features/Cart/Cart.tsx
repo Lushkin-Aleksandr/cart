@@ -1,16 +1,34 @@
 import React, { FC } from 'react'
-import { StyledCart } from './Cart.styled'
+import { CartContent, CartItems, StyledCart } from './Cart.styled'
 import { StyledContainer } from '../../common/components/Container/Container.styled'
 import { EmptyCart } from './EmptyCart/EmptyCart'
+import { Title } from '../../common/components/Title/Title.styled'
+import { CartOrderForm } from './CartOrderForm/CartOrderForm'
+import { CartItem } from './CartItem/CartItem'
 
-type PropsType = {}
+type PropsType = {
+  isEmpty?: boolean
+}
 
-export const Cart: FC<PropsType> = ({}) => {
+export const Cart: FC<PropsType> = ({ isEmpty = false }) => {
   return (
     <StyledCart>
       <StyledContainer>
-        {/*<Title>Cart</Title>*/}
-        <EmptyCart />
+        {isEmpty ? (
+          <EmptyCart />
+        ) : (
+          <>
+            <Title>Cart</Title>
+            <CartContent>
+              <CartItems>
+                <CartItem />
+                <CartItem />
+                <CartItem />
+              </CartItems>
+              <CartOrderForm />
+            </CartContent>
+          </>
+        )}
       </StyledContainer>
     </StyledCart>
   )
