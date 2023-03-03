@@ -1,4 +1,9 @@
 import styled, { keyframes } from 'styled-components'
+import { ButtonSizeType } from '../Button/Button'
+
+type PropsType = {
+  size: ButtonSizeType
+}
 
 const animation = keyframes`
   to {
@@ -7,13 +12,32 @@ const animation = keyframes`
   }
 `
 
-export const StyledIconButton = styled.button`
+export const StyledIconButton = styled.button<PropsType>`
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
   border: none;
-  padding: 8px;
+  padding: ${({ size }) => {
+    switch (size) {
+      case 'large':
+        return '8px'
+      case 'medium':
+        return '5px'
+      case 'small':
+        return '5px'
+    }
+  }};
+  font-size: ${({ size }) => {
+    switch (size) {
+      case 'large':
+        return '24px'
+      case 'medium':
+        return '20px'
+      case 'small':
+        return '16px'
+    }
+  }};
   color: rgba(0, 0, 0, 0.54);
   border-radius: 50%;
   cursor: pointer;

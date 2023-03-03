@@ -16,7 +16,7 @@ type PropsType = Partial<ButtonType> & {
 
 export const PlusMinusCounter: FC<PropsType> = ({
   value,
-  size = 'medium',
+  size = 'large',
   variant = 'primary',
   max = 1000,
   min = 0,
@@ -26,12 +26,12 @@ export const PlusMinusCounter: FC<PropsType> = ({
 }) => {
   return (
     <StyledPlusMinusCounter size={size} variant={variant} outlined={outlined}>
-      <IconButton disabled={value <= min} onClick={onMinusClick}>
-        <Minus size={size} variant={variant} color={outlined ? '' : '#ffffff'} />
+      <IconButton size={size} disabled={value <= min} onClick={onMinusClick}>
+        <Minus variant={variant} color={outlined ? '' : '#ffffff'} />
       </IconButton>
       <span>{value}</span>
-      <IconButton disabled={value >= max} onClick={onPlusClick}>
-        <Plus size={size} variant={variant} color={outlined ? '' : '#ffffff'} />
+      <IconButton size={size} disabled={value >= max} onClick={onPlusClick}>
+        <Plus variant={variant} color={outlined ? '' : '#ffffff'} />
       </IconButton>
     </StyledPlusMinusCounter>
   )

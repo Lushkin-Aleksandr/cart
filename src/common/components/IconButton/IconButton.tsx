@@ -1,14 +1,22 @@
 import React, { ButtonHTMLAttributes, FC, MouseEvent, PropsWithChildren, useState } from 'react'
 import { StyledIconButton } from './IconButton.styled'
-import { ButtonType } from '../Button/Button'
+import { ButtonSizeType, ButtonVariantsType } from '../Button/Button'
 
-type PropsType = ButtonHTMLAttributes<HTMLButtonElement> & {}
-
-export type IconPropsType = ButtonType & {
-  color?: string
+type PropsType = ButtonHTMLAttributes<HTMLButtonElement> & {
+  size?: ButtonSizeType
 }
 
-export const IconButton: FC<PropsWithChildren<PropsType>> = ({ children, onClick, ...props }) => {
+export type IconPropsType = {
+  color?: string
+  variant: ButtonVariantsType
+}
+
+export const IconButton: FC<PropsWithChildren<PropsType>> = ({
+  children,
+  onClick,
+  size = 'large',
+  ...props
+}) => {
   const [isClicked, setIsClicked] = useState(false)
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +28,7 @@ export const IconButton: FC<PropsWithChildren<PropsType>> = ({ children, onClick
   }
 
   return (
-    <StyledIconButton onClick={handleClick} {...props}>
+    <StyledIconButton size={size} onClick={handleClick} {...props}>
       {children}
       {isClicked && <span></span>}
     </StyledIconButton>

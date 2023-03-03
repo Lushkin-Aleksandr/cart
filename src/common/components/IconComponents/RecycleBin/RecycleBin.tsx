@@ -2,16 +2,11 @@ import React, { FC } from 'react'
 import { IconPropsType } from '../../IconButton/IconButton'
 import { StyledRecycleBin } from './RecycleBin.styled'
 
-export const RecycleBin: FC<Partial<IconPropsType>> = ({
-  variant = 'primary',
-  size = 'medium',
-  color,
-}) => {
+export const RecycleBin: FC<Partial<IconPropsType>> = ({ variant = 'primary', color }) => {
   return (
     <StyledRecycleBin
       color={color}
       variant={variant}
-      size={size}
       height="64px"
       width="64px"
       version="1.1"

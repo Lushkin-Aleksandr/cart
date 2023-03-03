@@ -2,16 +2,11 @@ import React, { FC } from 'react'
 import { StyledMinus } from './Minus.styled'
 import { IconPropsType } from '../../IconButton/IconButton'
 
-export const Minus: FC<Partial<IconPropsType>> = ({
-  variant = 'primary',
-  size = 'medium',
-  color,
-}) => {
+export const Minus: FC<Partial<IconPropsType>> = ({ variant = 'primary', color }) => {
   return (
     <StyledMinus
       color={color}
       variant={variant}
-      size={size}
       width="64px"
       height="64px"
       viewBox="0 0 24 24"
