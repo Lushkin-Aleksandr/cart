@@ -9,6 +9,7 @@ export const StyledHeader = styled.header`
   padding: 10px 20px;
   background: ${({ theme }) => theme.colors.primary};
   box-shadow: 0 0 5px 0 #000000;
+  z-index: 2;
 
   img {
     width: 70px;
