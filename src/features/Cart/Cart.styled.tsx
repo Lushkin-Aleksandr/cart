@@ -8,9 +8,17 @@ export const CartContent = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 `
 
 export const CartItems = styled.div`
-  //border: 2px dashed #fff;
-  flex-grow: 1;
+  flex: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex: auto;
+  }
 `

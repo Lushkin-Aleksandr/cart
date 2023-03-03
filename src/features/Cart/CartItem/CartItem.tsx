@@ -29,11 +29,13 @@ export const CartItem: FC<PropsType> = () => {
       <CartItemContent>
         <CartItemTitle>Steak</CartItemTitle>
         <CartItemDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, laboriosam.
+          Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum
+          dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
+          amet
         </CartItemDescription>
       </CartItemContent>
       <CartItemControl>
-        <IconButton>
+        <IconButton size={'medium'}>
           <RecycleBin />
         </IconButton>
         <PlusMinusCounter
@@ -41,7 +43,7 @@ export const CartItem: FC<PropsType> = () => {
           onPlusClick={handleIncreaseValue}
           onMinusClick={handleDecreaseValue}
           min={1}
-          outlined
+          // outlined
           size={'small'}
         />
       </CartItemControl>

@@ -9,4 +9,12 @@ export const StyledCartOrderForm = styled.form`
   height: 500px;
   font-size: 32px;
   color: #fff;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    flex-basis: 300px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-basis: auto;
+  }
 `

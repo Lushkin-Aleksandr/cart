@@ -11,24 +11,48 @@ export const StyledCartItem = styled.div`
 `
 export const CartItemImgWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.primary};
-  width: 200px;
+  max-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
+
+  @media (max-width: 540px) {
+    max-width: 100px;
+  }
 `
 export const CartItemImg = styled.img``
 export const CartItemContent = styled.div`
+  flex: 1;
   padding: 10px;
+
+  @media (max-width: 540px) {
+    padding: 5px;
+  }
 `
 export const CartItemTitle = styled.span`
   display: block;
-  font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 10px;
+
+  @media (max-width: 540px) {
+    margin-bottom: 5px;
+  }
 `
 export const CartItemDescription = styled.p`
   color: ${({ theme }) => theme.textColors.secondary};
+  overflow: hidden;
+
+  font-size: 0.8em;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+
+  @media (max-width: 540px) {
+    font-size: 0.6em;
+  }
 `
 export const CartItemControl = styled.div`
   display: flex;
@@ -36,4 +60,8 @@ export const CartItemControl = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 10px;
+
+  @media (max-width: 540px) {
+    padding: 5px;
+  }
 `
