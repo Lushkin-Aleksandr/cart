@@ -24,35 +24,38 @@ export const CartItemImgWrapper = styled.div`
 export const CartItemImg = styled.img``
 export const CartItemContent = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   padding: 10px;
 
   @media (max-width: 540px) {
     padding: 5px;
+    gap: 5px;
   }
 `
 export const CartItemTitle = styled.span`
   display: block;
-  font-weight: bold;
-  margin-bottom: 10px;
-
-  @media (max-width: 540px) {
-    margin-bottom: 5px;
-  }
+  font-weight: 700;
 `
 export const CartItemDescription = styled.p`
-  color: ${({ theme }) => theme.textColors.secondary};
+  flex: 1;
   overflow: hidden;
-
+  color: ${({ theme }) => theme.textColors.secondary};
   font-size: 0.8em;
 
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-break: break-word;
 
   @media (max-width: 540px) {
     font-size: 0.6em;
   }
+`
+export const CartItemPrice = styled.span`
+  font-size: 0.8em;
+  font-weight: 700;
 `
 export const CartItemControl = styled.div`
   display: flex;

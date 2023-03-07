@@ -5,6 +5,7 @@ import {
   CartItemDescription,
   CartItemImg,
   CartItemImgWrapper,
+  CartItemPrice,
   CartItemTitle,
   StyledCartItem,
 } from './CartItem.styled'
@@ -29,10 +30,12 @@ export const CartItem: FC<PropsType> = () => {
       <CartItemContent>
         <CartItemTitle>Steak</CartItemTitle>
         <CartItemDescription>
-          Lorem ipsum dolor sit amet Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum
-          dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit
-          amet
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at consequuntur cumque
+          eum ex exercitationem, expedita hic ipsum magnam necessitatibus nemo, non obcaecati odio
+          officiis optio perspiciatis quam quas quasi qui quibusdam quidem quisquam ratione
+          reprehenderit repudiandae tenetur voluptatem, voluptatibus?
         </CartItemDescription>
+        <CartItemPrice>40$</CartItemPrice>
       </CartItemContent>
       <CartItemControl>
         <IconButton size={'medium'}>
@@ -43,7 +46,6 @@ export const CartItem: FC<PropsType> = () => {
           onPlusClick={handleIncreaseValue}
           onMinusClick={handleDecreaseValue}
           min={1}
-          // outlined
           size={'small'}
         />
       </CartItemControl>
