@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import {
   GoodsCardBottom,
   GoodsCardDescription,
@@ -11,41 +11,47 @@ import {
 import { Button } from '../../../common/components/Button/Button'
 import dishImg from '../../../common/assets/images/dish.svg'
 import { PlusMinusCounter } from '../../../common/components/PlusMinusCounter/PlusMinusCounter'
+import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
+import { addCartItem, decreaseCartItemCount, increaseCartItemCount } from '../../Cart/cartSlice'
+import { GoodType } from '../goodsSlice'
+import { useAppSelector } from '../../../common/hooks/useAppSelector'
+import { selectCartItemCount } from '../../Cart/cartSelectors'
 
 type PropsType = {
-  title: string
-  description: string
-  price: number
-  imageUrl: string | null
+  good: GoodType
 }
 
-export const GoodsCard: FC<PropsType> = ({ title, description, price, imageUrl }) => {
-  const [value, setValue] = useState(0)
+export const GoodsCard: FC<PropsType> = ({ good }) => {
+  const dispatch = useAppDispatch()
+  const countInCart = useAppSelector(state => selectCartItemCount(state, good.id))
 
-  const handleIncreaseValue = () => setValue(value + 1)
-  const handleDecreaseValue = () => setValue(value - 1)
+  const handleAddGoodToCart = () => dispatch(addCartItem(good))
+
+  const handleIncreaseValue = () => dispatch(increaseCartItemCount(good.id))
+
+  const handleDecreaseValue = () => dispatch(decreaseCartItemCount(good.id))
 
   return (
     <StyledGoodsCard>
       <GoodsCardImgWrapper>
-        <img src={imageUrl || dishImg} alt="" />
+        <img src={good.imageUrl || dishImg} alt="" />
       </GoodsCardImgWrapper>
 
       <GoodsCardInfo>
-        <GoodsCardTitle>{title}</GoodsCardTitle>
+        <GoodsCardTitle>{good.title}</GoodsCardTitle>
 
-        <GoodsCardDescription>{description}</GoodsCardDescription>
+        <GoodsCardDescription>{good.description}</GoodsCardDescription>
 
         <GoodsCardBottom>
-          <GoodsCardPrice>{price}$</GoodsCardPrice>
+          <GoodsCardPrice>{good.price}$</GoodsCardPrice>
 
-          {value <= 0 ? (
-            <Button size={'small'} onClick={handleIncreaseValue}>
+          {countInCart < 1 ? (
+            <Button size={'small'} onClick={handleAddGoodToCart}>
               Buy
             </Button>
           ) : (
             <PlusMinusCounter
-              value={value}
+              value={countInCart}
               size={'small'}
               onPlusClick={handleIncreaseValue}
               onMinusClick={handleDecreaseValue}

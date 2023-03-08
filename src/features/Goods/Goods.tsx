@@ -5,12 +5,12 @@ import { GoodsCard } from './GoodsCard/GoodsCard'
 import { Title } from '../../common/components/Title/Title.styled'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
 import { GoodType } from './goodsSlice'
-import { getGoodsItems } from './goodsSelectors'
+import { selectGoodsItems } from './goodsSelectors'
 
 type PropsType = {}
 
 export const Goods: FC<PropsType> = ({}) => {
-  const goodsItems = useAppSelector<GoodType[]>(getGoodsItems)
+  const goodsItems = useAppSelector<GoodType[]>(selectGoodsItems)
 
   return (
     <StyledGoods>
@@ -19,15 +19,7 @@ export const Goods: FC<PropsType> = ({}) => {
 
         <GoodsItemsWrapper>
           {goodsItems.map(good => {
-            return (
-              <GoodsCard
-                key={good.id}
-                title={good.title}
-                description={good.description}
-                price={good.price}
-                imageUrl={good.imageUrl}
-              />
-            )
+            return <GoodsCard key={good.id} good={good} />
           })}
         </GoodsItemsWrapper>
       </StyledContainer>

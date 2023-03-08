@@ -9,7 +9,7 @@ const initialState: GoodsInitialStateType = {
       title: 'Steak',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: 43,
+      price: '43',
       imageUrl: steakImg,
     },
     {
@@ -17,7 +17,7 @@ const initialState: GoodsInitialStateType = {
       title: 'Burger',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: 10.32,
+      price: '10.32',
       imageUrl: null,
     },
     {
@@ -25,7 +25,7 @@ const initialState: GoodsInitialStateType = {
       title: 'Pizza',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: 13,
+      price: '13',
       imageUrl: '',
     },
     {
@@ -33,7 +33,7 @@ const initialState: GoodsInitialStateType = {
       title: 'Steak',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: 43,
+      price: '43',
       imageUrl: steakImg,
     },
     {
@@ -41,7 +41,7 @@ const initialState: GoodsInitialStateType = {
       title: 'Steak',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: 43,
+      price: '43',
       imageUrl: steakImg,
     },
   ],
@@ -62,7 +62,7 @@ export type GoodType = {
   id: string
   title: string
   description: string
-  price: number
+  price: string
   imageUrl: string | null
 }
 

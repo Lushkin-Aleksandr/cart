@@ -8,6 +8,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { Button } from '../../../common/components/Button/Button'
 import { Input } from '../../../common/components/Input/Input'
+import { useAppSelector } from '../../../common/hooks/useAppSelector'
+import { selectTotalPrice } from '../cartSelectors'
 
 type PropsType = {}
 
@@ -36,6 +38,7 @@ const orderSchema = Yup.object({
 })
 
 export const CartOrderForm: FC<PropsType> = () => {
+  const totalPrice = useAppSelector(selectTotalPrice)
   const { getFieldProps, errors, handleSubmit, touched } = useFormik({
     initialValues: {
       name: '',
@@ -79,7 +82,7 @@ export const CartOrderForm: FC<PropsType> = () => {
         />
       </CartOrderFormInputs>
       <CartOrderFormBottom>
-        <span>Total: 200$</span>
+        <span>Total: {totalPrice}$</span>
         <Button type={'submit'}>Order</Button>
       </CartOrderFormBottom>
     </StyledCartOrderForm>

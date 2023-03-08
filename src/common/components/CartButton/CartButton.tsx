@@ -3,14 +3,14 @@ import { StyledCartButton } from './CartButton.styled'
 import { ArrowRight } from '../IconComponents/ArrowRight/ArrowRight'
 
 type PropsType = {
-  commonPrice?: number
+  totalPrice?: number
   onClick(): void
 }
 
-export const CartButton: FC<PropsType> = ({ commonPrice, onClick }) => {
+export const CartButton: FC<PropsType> = ({ totalPrice, onClick }) => {
   return (
     <StyledCartButton onClick={onClick} variant={'secondary'} size={'medium'}>
-      {commonPrice ? <span>{commonPrice}$</span> : undefined}
+      {totalPrice ? <span>{totalPrice}$</span> : undefined}
       <div>
         <span>Cart</span>
         <ArrowRight />
