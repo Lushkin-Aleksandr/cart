@@ -9,12 +9,17 @@ import {
   StyledGoodsCard,
 } from './GoodsCard.styled'
 import { Button } from '../../../common/components/Button/Button'
-import steakImg from '../../../common/assets/images/steak1.png'
+import dishImg from '../../../common/assets/images/dish.svg'
 import { PlusMinusCounter } from '../../../common/components/PlusMinusCounter/PlusMinusCounter'
 
-type PropsType = {}
+type PropsType = {
+  title: string
+  description: string
+  price: number
+  imageUrl: string | null
+}
 
-export const GoodsCard: FC<PropsType> = ({}) => {
+export const GoodsCard: FC<PropsType> = ({ title, description, price, imageUrl }) => {
   const [value, setValue] = useState(0)
 
   const handleIncreaseValue = () => setValue(value + 1)
@@ -23,18 +28,16 @@ export const GoodsCard: FC<PropsType> = ({}) => {
   return (
     <StyledGoodsCard>
       <GoodsCardImgWrapper>
-        <img src={steakImg} alt="" />
+        <img src={imageUrl || dishImg} alt="" />
       </GoodsCardImgWrapper>
 
       <GoodsCardInfo>
-        <GoodsCardTitle>Steak</GoodsCardTitle>
+        <GoodsCardTitle>{title}</GoodsCardTitle>
 
-        <GoodsCardDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, voluptate?
-        </GoodsCardDescription>
+        <GoodsCardDescription>{description}</GoodsCardDescription>
 
         <GoodsCardBottom>
-          <GoodsCardPrice>40$</GoodsCardPrice>
+          <GoodsCardPrice>{price}$</GoodsCardPrice>
 
           {value <= 0 ? (
             <Button size={'small'} onClick={handleIncreaseValue}>
