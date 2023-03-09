@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { GoodType } from '../Goods/goodsSlice'
-import {
-  multiplyTwoFloatNumbers,
-  subtractTwoFloatNumbers,
-  sumOfTwoFloatNumbers,
-} from '../../common/utils/floatMathOperations'
+import { getCartTotalPrice } from '../../common/utils/getCartTotalPrice'
 
 const initialState: CartsInitialStateType = {
   items: [],
@@ -25,17 +21,14 @@ export const cartSlice = createSlice({
         state.items.push(newCartItem)
       }
 
-      state.totalPrice = sumOfTwoFloatNumbers(state.totalPrice, action.payload.price)
+      state.totalPrice = getCartTotalPrice(state.items)
     },
     removeCartItem(state, action: PayloadAction<string>) {
       const cartItem = state.items.find(item => item.id === action.payload)
 
       if (cartItem) {
         state.items = state.items.filter(item => item.id !== action.payload)
-        state.totalPrice = subtractTwoFloatNumbers(
-          state.totalPrice,
-          multiplyTwoFloatNumbers(cartItem.count.toString(), cartItem.price)
-        )
+        state.totalPrice = getCartTotalPrice(state.items)
       }
     },
     increaseCartItemCount(state, action: PayloadAction<string>) {
@@ -43,7 +36,7 @@ export const cartSlice = createSlice({
 
       if (cartItem) {
         cartItem.count += 1
-        state.totalPrice = sumOfTwoFloatNumbers(state.totalPrice, cartItem.price)
+        state.totalPrice = getCartTotalPrice(state.items)
       }
     },
     decreaseCartItemCount(state, action: PayloadAction<string>) {
@@ -56,7 +49,7 @@ export const cartSlice = createSlice({
           cartItem.count -= 1
         }
 
-        state.totalPrice = subtractTwoFloatNumbers(state.totalPrice, cartItem.price)
+        state.totalPrice = getCartTotalPrice(state.items)
       }
     },
   },
