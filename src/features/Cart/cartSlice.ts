@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { GoodType } from '../Goods/goodsSlice'
 import {
+  multiplyTwoFloatNumbers,
   subtractTwoFloatNumbers,
   sumOfTwoFloatNumbers,
 } from '../../common/utils/floatMathOperations'
@@ -26,6 +27,17 @@ export const cartSlice = createSlice({
 
       state.totalPrice = sumOfTwoFloatNumbers(state.totalPrice, action.payload.price)
     },
+    removeCartItem(state, action: PayloadAction<string>) {
+      const cartItem = state.items.find(item => item.id === action.payload)
+
+      if (cartItem) {
+        state.items = state.items.filter(item => item.id !== action.payload)
+        state.totalPrice = subtractTwoFloatNumbers(
+          state.totalPrice,
+          multiplyTwoFloatNumbers(cartItem.count.toString(), cartItem.price)
+        )
+      }
+    },
     increaseCartItemCount(state, action: PayloadAction<string>) {
       const cartItem = state.items.find(item => item.id === action.payload)
 
@@ -50,7 +62,8 @@ export const cartSlice = createSlice({
   },
 })
 
-export const { addCartItem, increaseCartItemCount, decreaseCartItemCount } = cartSlice.actions
+export const { addCartItem, removeCartItem, increaseCartItemCount, decreaseCartItemCount } =
+  cartSlice.actions
 export const cartReducer = cartSlice.reducer
 
 // ========== TYPES ==========

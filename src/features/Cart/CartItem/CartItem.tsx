@@ -14,7 +14,7 @@ import { PlusMinusCounter } from '../../../common/components/PlusMinusCounter/Pl
 import { IconButton } from '../../../common/components/IconButton/IconButton'
 import { RecycleBin } from '../../../common/components/IconComponents/RecycleBin/RecycleBin'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
-import { decreaseCartItemCount, increaseCartItemCount } from '../cartSlice'
+import { decreaseCartItemCount, increaseCartItemCount, removeCartItem } from '../cartSlice'
 
 type PropsType = {
   id: string
@@ -32,6 +32,8 @@ export const CartItem: FC<PropsType> = ({ id, title, description, price, imageUr
 
   const handleDecreaseValue = () => dispatch(decreaseCartItemCount(id))
 
+  const handleRemoveCartItem = () => dispatch(removeCartItem(id))
+
   return (
     <StyledCartItem>
       <CartItemImgWrapper>
@@ -43,7 +45,7 @@ export const CartItem: FC<PropsType> = ({ id, title, description, price, imageUr
         <CartItemPrice>{price}$</CartItemPrice>
       </CartItemContent>
       <CartItemControl>
-        <IconButton size={'medium'}>
+        <IconButton size={'medium'} onClick={handleRemoveCartItem}>
           <RecycleBin />
         </IconButton>
         <PlusMinusCounter
