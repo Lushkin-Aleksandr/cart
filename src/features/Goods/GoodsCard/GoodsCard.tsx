@@ -13,9 +13,9 @@ import dishImg from '../../../common/assets/images/dish.svg'
 import { PlusMinusCounter } from '../../../common/components/PlusMinusCounter/PlusMinusCounter'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { addCartItem, decreaseCartItemCount, increaseCartItemCount } from '../../Cart/cartSlice'
-import { GoodType } from '../goodsSlice'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
 import { selectCartItemCount } from '../../Cart/cartSelectors'
+import { GoodType } from '../../../api/api'
 
 type PropsType = {
   good: GoodType

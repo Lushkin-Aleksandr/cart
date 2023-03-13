@@ -4,8 +4,8 @@ import { StyledContainer } from '../../common/components/Container/Container.sty
 import { GoodsCard } from './GoodsCard/GoodsCard'
 import { Title } from '../../common/components/Title/Title.styled'
 import { useAppSelector } from '../../common/hooks/useAppSelector'
-import { GoodType } from './goodsSlice'
 import { selectGoodsItems } from './goodsSelectors'
+import { GoodType } from '../../api/api'
 
 type PropsType = {}
 

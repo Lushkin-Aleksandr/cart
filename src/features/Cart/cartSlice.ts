@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { GoodType } from '../Goods/goodsSlice'
 import { getCartTotalPrice } from '../../common/utils/getCartTotalPrice'
+import { GoodType } from '../../api/api'
 
 const initialState: CartsInitialStateType = {
   items: [],

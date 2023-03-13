@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { v1 } from 'uuid'
 import steakImg from '../../common/assets/images/steak1.png'
+import { GoodType } from '../../api/api'
 
 const initialState: GoodsInitialStateType = {
   items: [
@@ -58,14 +59,6 @@ export const goodsSlice = createSlice({
 export const goodsReducer = goodsSlice.reducer
 
 // ========== TYPES ==========
-export type GoodType = {
-  id: string
-  title: string
-  description: string
-  price: string
-  imageUrl: string | null
-}
-
 type GoodsInitialStateType = {
   items: GoodType[]
 }
