@@ -37,6 +37,10 @@ export const CartItemContent = styled.div`
 export const CartItemTitle = styled.span`
   display: block;
   font-weight: 700;
+
+  @media (max-width: 540px) {
+    font-size: 0.7em;
+  }
 `
 export const CartItemDescription = styled.p`
   flex: 1;
