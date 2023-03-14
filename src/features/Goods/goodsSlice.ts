@@ -1,58 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { v1 } from 'uuid'
-import steakImg from '../../common/assets/images/steak1.png'
-import { GoodType } from '../../api/api'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { goodsAPI, GoodType } from '../../api/api'
 
 const initialState: GoodsInitialStateType = {
-  items: [
-    {
-      id: v1(),
-      title: 'Steak',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: '43',
-      imageUrl: steakImg,
-    },
-    {
-      id: v1(),
-      title: 'Burger',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: '10.32',
-      imageUrl: null,
-    },
-    {
-      id: v1(),
-      title: 'Pizza',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: '13',
-      imageUrl: '',
-    },
-    {
-      id: v1(),
-      title: 'Steak',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: '43',
-      imageUrl: steakImg,
-    },
-    {
-      id: v1(),
-      title: 'Steak',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis dolor ipsum maiores recusandae. Aut beatae fugiat impedit numquam vero.',
-      price: '43',
-      imageUrl: steakImg,
-    },
-  ],
+  items: [],
+  status: 'idle',
 }
+
+export const getGoods = createAsyncThunk('goods/getGoods', async (_, { rejectWithValue }) => {
+  try {
+    return await goodsAPI.getGoods()
+  } catch (error) {
+    console.log(error)
+    return rejectWithValue(null)
+  }
+})
 
 export const goodsSlice = createSlice({
   name: 'goods',
   initialState,
-  reducers: {
-    setGoods(state, action) {},
+  reducers: {},
+  extraReducers: builder => {
+    builder
+      .addCase(getGoods.pending, state => {
+        state.status = 'loading'
+      })
+      .addCase(getGoods.fulfilled, (state, action) => {
+        state.items = action.payload
+        state.status = 'idle'
+      })
+      .addCase(getGoods.rejected, state => {
+        state.status = 'idle'
+      })
   },
 })
 
@@ -61,4 +39,6 @@ export const goodsReducer = goodsSlice.reducer
 // ========== TYPES ==========
 type GoodsInitialStateType = {
   items: GoodType[]
+  status: RequestStatusType
 }
+export type RequestStatusType = 'idle' | 'loading'
