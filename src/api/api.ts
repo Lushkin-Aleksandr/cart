@@ -1,12 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore/lite'
 import { db } from './firebase'
 
-export const getGoods = async () => {
-  const res = await goodsAPI.getGoods()
-
-  console.log(res)
-}
-
 export const goodsAPI = {
   async getGoods() {
     const goodsSnapshot = await getDocs(collection(db, 'goods'))
