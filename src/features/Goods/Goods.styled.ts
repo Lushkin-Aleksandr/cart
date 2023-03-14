@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Loader } from '../../common/components/Loader/Loader.styled'
 
 export const StyledGoods = styled.div`
   padding: 20px 0 40px;
@@ -32,4 +33,8 @@ export const GoodsItemsWrapper = styled.div`
     justify-content: center;
     gap: 30px;
   }
+`
+
+export const GoodsLoader = styled(Loader)`
+  margin: auto;
 `
