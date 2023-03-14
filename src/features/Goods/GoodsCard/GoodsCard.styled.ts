@@ -51,7 +51,7 @@ export const GoodsCardTitle = styled.span`
   display: block;
   font-size: 1.25em;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin-bottom: 5px;
@@ -59,13 +59,12 @@ export const GoodsCardTitle = styled.span`
 `
 
 export const GoodsCardDescription = styled.p`
-  flex: 1;
-  max-height: 70px;
-  margin-bottom: 15px;
+  font-size: 0.8em;
+  margin-bottom: auto;
   color: ${({ theme }) => theme.textColors.secondary};
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   word-break: break-word;
 `
