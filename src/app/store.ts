@@ -12,6 +12,6 @@ export const store = configureStore({
   preloadedState: loadState(), // load state from local storage
 })
 
-store.subscribe(throttle(() => saveState(store.getState()), 1000)) // Redo this after making backend (save only cart)
+store.subscribe(throttle(() => saveState({ cart: store.getState().cart }), 1000)) // Redo this after making backend (save only cart)
 export type RootStateType = ReturnType<typeof store.getState>
 export type AppDispatchType = typeof store.dispatch
