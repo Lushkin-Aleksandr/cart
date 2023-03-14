@@ -4,4 +4,6 @@ export const StyledApp = styled.div`
   min-height: 100%;
   background: ${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.textColors.primary};
+  display: flex;
+  flex-direction: column;
 `
