@@ -10,6 +10,8 @@ import { Button } from '../../../common/components/Button/Button'
 import { Input } from '../../../common/components/Input/Input'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
 import { selectTotalPrice } from '../cartSelectors'
+import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
+import { makeOrder } from '../cartSlice'
 
 type PropsType = {}
 
@@ -39,6 +41,7 @@ const orderSchema = Yup.object({
 
 export const CartOrderForm: FC<PropsType> = () => {
   const totalPrice = useAppSelector(selectTotalPrice)
+  const dispatch = useAppDispatch()
   const { getFieldProps, errors, handleSubmit, touched } = useFormik({
     initialValues: {
       name: '',
@@ -48,7 +51,7 @@ export const CartOrderForm: FC<PropsType> = () => {
     },
     validationSchema: orderSchema,
     onSubmit(values) {
-      console.log(values)
+      dispatch(makeOrder(values))
     },
   })
 
