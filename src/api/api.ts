@@ -1,5 +1,6 @@
-import { collection, getDocs } from 'firebase/firestore/lite'
+import { addDoc, collection, getDocs } from 'firebase/firestore/lite'
 import { db } from './firebase'
+import { UserInfoType } from '../features/Cart/cartSlice'
 
 export const goodsAPI = {
   async getGoods() {
@@ -12,6 +13,10 @@ export const goodsAPI = {
       return good as GoodType
     })
   },
+  async makeOrder(order: ServerOrderInfoType) {
+    const ordersRef = collection(db, 'orders')
+    await addDoc(ordersRef, order)
+  },
 }
 
 // ========== TYPES ==========
@@ -21,4 +26,16 @@ export type GoodType = {
   description: string
   price: string
   imageUrl: string | null
+}
+
+export type OrderedGoodType = Pick<GoodType, 'id'> & {
+  count: number
+}
+
+export type ServerOrderInfoType = {
+  userInfo: ServerUserInfoType
+  orderedGoods: OrderedGoodType[]
+}
+export type ServerUserInfoType = UserInfoType & {
+  userId: string
 }
