@@ -5,7 +5,6 @@ import {
   StyledCartOrderForm,
 } from './CartOrderForm.styled'
 import { useFormik } from 'formik'
-import * as Yup from 'yup'
 import { Button } from '../../../common/components/Button/Button'
 import { Input } from '../../../common/components/Input/Input'
 import { useAppSelector } from '../../../common/hooks/useAppSelector'
@@ -14,32 +13,9 @@ import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { makeOrder } from '../cartSlice'
 import { useNavigate } from 'react-router-dom'
 import { RoutePaths } from '../../../routes/AppRoutes'
+import { orderSchema } from '../../../common/utils/validationSchemas'
 
 type PropsType = {}
-
-const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
-
-const orderSchema = Yup.object({
-  name: Yup.string()
-    .min(2, 'Min length is 2 characters!')
-    .max(50, 'Max length is 50 characters!')
-    .trim('Remove spaces!')
-    .strict(true)
-    .required('Name is required!'),
-  surname: Yup.string()
-    .min(2, 'Min length is 2 characters!')
-    .max(50, 'Max length is 50 characters!')
-    .trim('Remove spaces!')
-    .strict(true),
-  address: Yup.string()
-    .required('Address is required!')
-    .trim('Remove spaces!')
-    .strict(true)
-    .min(10, 'Min length is 10 characters!'),
-  phone: Yup.string()
-    .matches(phoneRegExp, 'Phone number is not valid')
-    .required('Phone is required!'),
-})
 
 export const CartOrderForm: FC<PropsType> = () => {
   const totalPrice = useAppSelector(selectTotalPrice)
