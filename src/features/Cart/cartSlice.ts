@@ -20,6 +20,8 @@ export const makeOrder = createAsyncThunk(
       }
 
       await goodsAPI.makeOrder(order)
+
+      return true
     } catch (error) {
       console.log(error)
       return rejectWithValue(null)

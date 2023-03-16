@@ -12,6 +12,8 @@ import { useAppSelector } from '../../../common/hooks/useAppSelector'
 import { selectTotalPrice } from '../cartSelectors'
 import { useAppDispatch } from '../../../common/hooks/useAppDispatch'
 import { makeOrder } from '../cartSlice'
+import { useNavigate } from 'react-router-dom'
+import { RoutePaths } from '../../../routes/AppRoutes'
 
 type PropsType = {}
 
@@ -42,6 +44,7 @@ const orderSchema = Yup.object({
 export const CartOrderForm: FC<PropsType> = () => {
   const totalPrice = useAppSelector(selectTotalPrice)
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const { getFieldProps, errors, handleSubmit, touched } = useFormik({
     initialValues: {
       name: '',
@@ -50,8 +53,12 @@ export const CartOrderForm: FC<PropsType> = () => {
       phone: '',
     },
     validationSchema: orderSchema,
-    onSubmit(values) {
-      dispatch(makeOrder(values))
+    async onSubmit(values) {
+      const result = await dispatch(makeOrder(values))
+
+      if (result.payload) {
+        navigate(RoutePaths.GOODS)
+      }
     },
   })
 
