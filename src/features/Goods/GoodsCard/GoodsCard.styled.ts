@@ -25,9 +25,11 @@ export const GoodsCardImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 
   img {
-    width: 85%;
+    max-width: 100%;
+    max-height: 100%;
   }
 `
 
